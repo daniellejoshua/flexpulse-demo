@@ -79,7 +79,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const media = window.matchMedia("(min-width: 1280px)");
+    const media = window.matchMedia("(min-width: 1024px)");
     const update = () => setDesktop(media.matches);
     update();
     media.addEventListener("change", update);
@@ -113,26 +113,26 @@ export default function Navbar() {
       transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "sticky top-0 z-40 w-full border-b border-[#EDE7E4] backdrop-blur-md",
-        scrolled ? "xl:border-b" : "xl:border-b-0",
+        scrolled ? "lg:border-b" : "lg:border-b-0",
       )}
     >
       <motion.div
         animate={{ height: desktop ? (scrolled ? 72 : 92) : 64 }}
         transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:grid xl:grid-cols-[1fr_auto_1fr] xl:px-16"
+        className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-16"
       >
         <Link to="/" className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-          <img src="/assets/flexpulse-logo.webp" alt="FlexPulse" className="w-[8.25rem] sm:w-40 xl:hidden" />
+          <img src="/assets/flexpulse-logo.webp" alt="FlexPulse" className="w-[8.25rem] sm:w-40 lg:hidden" />
           <motion.img
             src="/assets/flexpulse-logo.webp"
             alt="FlexPulse"
             animate={{ width: scrolled ? 180 : 220 }}
             transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden h-auto xl:block"
+            className="hidden h-auto lg:block"
           />
         </Link>
 
-        <nav className="relative hidden justify-self-center xl:flex" aria-label="Primary navigation">
+        <nav className="relative hidden justify-self-center lg:flex" aria-label="Primary navigation">
           <motion.div
             animate={{ height: scrolled ? 50 : 56, paddingInline: scrolled ? 8 : 12 }}
             transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -195,11 +195,11 @@ export default function Navbar() {
         </nav>
 
          <div className="flex items-center justify-end gap-2 sm:gap-3">
-           <button type="button" onClick={() => setSearchOpen(true)} className="hidden size-11 place-items-center rounded-full text-[#171515] transition-colors hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:grid" aria-label="Search FlexPulse"><Search className="size-5" strokeWidth={1.8} /></button>
-           <button type="button" onClick={() => setSearchOpen(true)} className="grid size-11 place-items-center rounded-full text-[#171515] transition-colors hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:hidden" aria-label="Search FlexPulse"><Search className="size-5" strokeWidth={1.8} /></button>
+           <button type="button" onClick={() => setSearchOpen(true)} className="hidden size-11 place-items-center rounded-full text-[#171515] transition-colors hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:grid" aria-label="Search FlexPulse"><Search className="size-5" strokeWidth={1.8} /></button>
+           <button type="button" onClick={() => setSearchOpen(true)} className="grid size-11 place-items-center rounded-full text-[#171515] transition-colors hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden" aria-label="Search FlexPulse"><Search className="size-5" strokeWidth={1.8} /></button>
            <CartButton />
-          <Link to="/shop" className="hidden h-12 shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-7 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 xl:inline-flex">Shop Now</Link>
-          <button type="button" className="grid size-11 place-items-center rounded-full text-[#171515] hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu">
+          <Link to="/shop" className="hidden h-12 shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-7 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:inline-flex">Shop Now</Link>
+          <button type="button" className="grid size-11 place-items-center rounded-full text-[#171515] hover:bg-[#FFF1F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu">
             <Menu className="size-5" />
           </button>
         </div>
