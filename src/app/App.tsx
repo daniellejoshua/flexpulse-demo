@@ -1,7 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { transition, useShouldReduceMotion } from "@animate-ui/react/utils/motion";
 import MainLayout from "@/app/layouts/MainLayout";
 import { PulseLoader } from "@/components/ui/PulseLoader";
 
@@ -43,21 +41,11 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const location = useLocation();
-  const reduceMotion = useShouldReduceMotion();
-
   return (
-    <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#FFF8F8]"><PulseLoader label="Loading FlexPulse" /></div>}>
+    <>
       <ScrollToTop />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={location.pathname}
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: reduceMotion ? 0 : -8, transition: transition.fade }}
-          transition={transition.reveal}
-        >
-          <Routes location={location}>
+      <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#FFF8F8]"><PulseLoader label="Loading FlexPulse" /></div>}>
+        <Routes>
             <Route path="/checkout" element={<Checkout />} />
             <Route element={<MainLayout />}>
               <Route path="/" element={<Home />} />
@@ -87,9 +75,8 @@ export default function App() {
               <Route path="/search" element={<Search />} />
               <Route path="/affiliate" element={<Affiliate />} />
             </Route>
-          </Routes>
-        </motion.div>
-      </AnimatePresence>
-    </Suspense>
+        </Routes>
+      </Suspense>
+    </>
   );
 }
