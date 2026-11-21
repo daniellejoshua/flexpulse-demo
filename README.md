@@ -29,3 +29,4 @@ Open http://localhost:5173
 - Checkout is a frontend demo; no real order is placed.
 - Reviews are clearly labeled placeholders.
 - Prices and specs are mock values.
+# FlexPulse-Demo
